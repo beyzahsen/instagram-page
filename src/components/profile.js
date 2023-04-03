@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { DesktopOnly, MobileOnly } from "../utils/mobile";
 import { KeyNumbers } from "./key-numbers";
+import data from  "../data.json"
 
 const Header = styled.header`
   margin-bottom: 44px;
@@ -89,32 +90,29 @@ const ProfileRow = styled.div`
   margin-bottom: 20px;
 `;
 
-export function Profile() {
+export function Profile(props) {
   return (
     <Header>
       <HeaderWrap>
         <ProfilePic>
-          <ProfileImg src="/images/project-2.webp" alt="profile-logo" />
+          <ProfileImg src={props.data.profilePic} alt="profile-logo" />
         </ProfilePic>
         <div>
           <ProfileRow>
             <ProfileTitle>
-              <ProfileH2>Cat</ProfileH2>
+              <ProfileH2>{props.data.name}</ProfileH2>
             </ProfileTitle>
           </ProfileRow>
           <DesktopOnly>
             <ProfileRow>
-              <KeyNumbers />
+              <KeyNumbers num={props.data.info} />
             </ProfileRow>
+
             <ProfileDescriptions
             // class="row last"
             >
-              <ProfileDescriptionH1>apple</ProfileDescriptionH1>
               <ProfileDescriptionSpan>
-                Everyone has a story to tell.
-                <br />
-                Tag <ProfileDescriptionA>#ShotoniPhone</ProfileDescriptionA> to
-                take part.
+                {props.data.info.bio}
               </ProfileDescriptionSpan>
             </ProfileDescriptions>
           </DesktopOnly>
@@ -132,6 +130,9 @@ export function Profile() {
             </ProfileDescriptionSpan>
           </ProfileDescriptions>
         </ProfileRow>
+      </MobileOnly>
+      <MobileOnly>
+        <KeyNumbers num={props.data.info} />
       </MobileOnly>
     </Header>
   );

@@ -11,12 +11,12 @@ const ProfileDetailUl = styled.ul`
     border-top: 1px solid var(--ins-border-primary);
   }
 `;
-export function KeyNumbers() {
+export function KeyNumbers(props) {
   return (
     <ProfileDetailUl>
-      <KeyNumber label="posts" number={722} />
-      <KeyNumber label="followers" number="25.1m" />
-      <KeyNumber label="following" number={6} />
+      <KeyNumber label="posts" number={props.num.posts} />
+      <KeyNumber label="followers" number={props.num.followers} />
+      <KeyNumber label="following" number={props.num.following} />
     </ProfileDetailUl>
   );
 }

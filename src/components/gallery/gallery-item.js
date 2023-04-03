@@ -9,12 +9,12 @@ const Img = styled.img`
   display: block;
 `;
 
-export function GalleryItem({ imagePath }) {
+export function GalleryItem({ imagePath,imageCaption }) {
   console.log("imagePath - GalleryItem", imagePath);
   return (
     <Wrap>
       <Img alt="gallery-post" src={imagePath} />
-      Caption here.
+      <p>{imageCaption}</p>
     </Wrap>
   );
 }

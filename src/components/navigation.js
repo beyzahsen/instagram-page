@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Logo = styled.img`
   height: 29px;
@@ -30,7 +30,7 @@ const Fixed = styled.div`
 `;
 
 export function Navigation({ lightThemeLogo, darkThemeLogo }) {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   return (
     <nav>

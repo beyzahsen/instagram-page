@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { data } from "./data";
 import { GalleryItem } from "./gallery-item";
 
 const Grid = styled.div`
@@ -12,42 +11,13 @@ const Grid = styled.div`
   }
 `;
 
-export function Gallery() {
+export function Gallery(props) {
   return (
     <Grid>
-      {data.map((item, id) => (
-        <GalleryItem key={id} imagePath={item.imagepath} />
+      {props.data.posts.map((item, id) => (
+        <GalleryItem key={id} imagePath={item.postImage} imageCaption={item.caption} />
       ))}
-      {/* <GalleryItem>
-        <Img alt="gallery-post" src="/images/gallery-1.jpg" />
-        <Icon>
-          <span className="media-icon"></span>
-        </Icon>
-      </GalleryItem>
-      <GalleryItem>
-        <Img alt="gallery-post" src="/images/gallery-2.jpg" />
-        <Icon>
-          <span className="media-icon"></span>
-        </Icon>
-      </GalleryItem>
-      <GalleryItem>
-        <Img alt="gallery-post" src="/images/gallery-3.jpg" />
-        <Icon>
-          <span className="media-icon"></span>
-        </Icon>
-      </GalleryItem>
-      <GalleryItem>
-        <Img alt="gallery-post" src="/images/gallery-4.jpg" />
-      </GalleryItem>
-      <GalleryItem>
-        <Img alt="gallery-post" src="/images/gallery-5.jpg" />
-      </GalleryItem>
-      <GalleryItem>
-        <Img alt="gallery-post" src="/images/gallery-6.jpg" />
-        <Icon>
-          <span className="media-icon"></span>
-        </Icon>
-      </GalleryItem> */}
+
     </Grid>
   );
 }

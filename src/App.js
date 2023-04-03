@@ -1,9 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import { useState } from "react";
 import styled from "styled-components";
 import "./styles.css";
 import { ProfilePage } from "./ProfilePage";
+import ImageUpload from "./ImageUpload";
 
 const ThemeWrap = styled.div`
   background: var(--ins-background-primary);
@@ -19,8 +20,11 @@ export default function App() {
       <Switch>
         <Route path="/">
           <ProfilePage />
+          <ImageUpload></ImageUpload>
         </Route>
       </Switch>
     </Router>
   );
 }
+
+

@@ -1,0 +1,14 @@
+@import url("./reset.css");
+@import url("./common.css");
+@import url("./system-token.css");
+
+/* CSS Utils */
+.__insta-dark-mode .light-theme-only {
+  display: none;
+}
+.dark-theme-only {
+  display: none;
+}
+.__insta-dark-mode .dark-theme-only {
+  display: block;
+}

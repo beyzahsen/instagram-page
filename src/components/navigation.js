@@ -3,7 +3,8 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
 const Logo = styled.img`
-  height: 29px;
+  height: 60px;
+  padding-top: 7px;
 `;
 const NavContent = styled.div`
   max-width: 935px;
@@ -49,6 +50,6 @@ export function Navigation({ lightThemeLogo, darkThemeLogo }) {
   );
 }
 Navigation.defaultProps = {
-  lightThemeLogo: "/images/logo.png",
+  lightThemeLogo: "/images/Logo-Instagram.png",
   darkThemeLogo: "/images/logo-white.png",
 };

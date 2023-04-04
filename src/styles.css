@@ -12,3 +12,63 @@
 .__insta-dark-mode .dark-theme-only {
   display: block;
 }
+
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.logo {
+  height: 30px;
+  margin-left: 30px;
+}
+
+.search-box {
+  margin-left: 30px;
+  width: 200px;
+  border: none;
+  border-radius: 3px;
+  padding: 7px;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.menu i {
+  font-size: 24px;
+  margin-right: 20px;
+}
+
+.profile {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: 30px;
+}
+
+.posts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.post {
+  margin: 10px;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.post img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

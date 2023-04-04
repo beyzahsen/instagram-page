@@ -5,6 +5,7 @@ import styled from "styled-components";
 import "./styles.css";
 import { ProfilePage } from "./ProfilePage";
 import data from "./data.json";
+import Home from "./HomePage";
 
 const ThemeWrap = styled.div`
   background: var(--ins-background-primary);
@@ -17,8 +18,10 @@ export default function App() {
 
   return (
     <div>
+      
       <Router>
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route path="/:id" element={<ProfilePage />} />
         </Routes>
       </Router>

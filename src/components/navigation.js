@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
 
 const Logo = styled.img`
   height: 60px;
@@ -31,8 +30,6 @@ const Fixed = styled.div`
 `;
 
 export function Navigation({ lightThemeLogo, darkThemeLogo }) {
-  const navigate = useNavigate();
-
   return (
     <nav>
       <Mock></Mock>

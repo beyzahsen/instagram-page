@@ -1,6 +1,4 @@
 import React from "react";
-import Layout from "./SideBar";
-import { ProSidebarProvider } from "react-pro-sidebar";
 import "./styles.css";
 
 export default function Home() {

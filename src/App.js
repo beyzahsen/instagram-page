@@ -22,7 +22,7 @@ export default function App() {
         renders the first one that matches the current URL. */}
       <Routes>
         <Route path="/">
-          <Route path="user/:id" element={<ProfilePage/>}/>
+          <Route path="/:id" element={<ProfilePage/>}/>
         </Route>
       </Routes>
     </Router>

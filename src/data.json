@@ -1,9 +1,8 @@
 {
     "profiles":[
         {
-            "id":"1",
             "userName":"@cat",
-            "name":"Cat1",
+            "name":"Cat",
             "profilePic":"/images/project-2.webp",
             "info":{
                 "posts":"30",
@@ -27,27 +26,26 @@
             ]
         },
         {
-            "id":"2",
-            "userName":"@cat2",
-            "name":"Cat2",
-            "profilePic":"/images/galeri1.png",
+            "userName":"@adresgezgini",
+            "name":"Adresgezgini",
+            "profilePic":"img/43915388_342401976317588_5952711040306249728_n.jpg",
             "info":{
                 "posts":"3",
                 "followers":"3000000",
                 "following":"3",
-                "bio":"MEOW!"
+                "bio":"All In One Internet Marketing Solutions!\n➖Google Ads\n➖Facebook Ads\n➖Instagram Ads\n➖Mobile Apps\n➖Web Design\n➖Social Media Management\n📲🔐💻x"
             },
             "posts":[
                 {
-                    "postImage":"/images/galeri1.png",
+                    "postImage":"img/327984234_708146991096803_1242192672522661325_n.jpg",
                     "caption":"caption"
                 },
                 {
-                    "postImage":"/images/project-1.webp",
+                    "postImage":"img/338242378_891858588547624_3914135400627764724_n.jpg",
                     "caption":"caption"
                 },
                 {
-                    "postImage":"/images/project-2.webp",
+                    "postImage":"img/338638731_1564277967383085_2650253976241573707_n.jpg",
                     "caption":"caption"
                 }
             ]

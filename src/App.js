@@ -4,7 +4,6 @@ import { useState } from "react";
 import styled from "styled-components";
 import "./styles.css";
 import { ProfilePage } from "./ProfilePage";
-import ImageUpload from "./ImageUpload";
 import data from "./data.json";
 
 const ThemeWrap = styled.div`
@@ -17,18 +16,12 @@ export default function App() {
   console.log(data);
 
   return (
-    <Router>
-      <Routes>
-        <Route path="/:id" element={<ProfilePage />} />
-      </Routes>
-    </Router>
+    <div>
+      <Router>
+        <Routes>
+          <Route path="/:id" element={<ProfilePage />} />
+        </Routes>
+      </Router>
+    </div>
   );
 }
-
-/*<Switch>
-<Route path="/:id" element={<ProfilePage/>}/>
-        </Route>
-        <Route path="/">
-
-        </Route>
-      </Switch>*/

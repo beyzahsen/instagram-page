@@ -2,13 +2,13 @@ import React from "react";
 import { useState } from "react";
 import styled from "styled-components";
 import { Gallery } from "./components/gallery";
-import { KeyNumbers } from "./components/key-numbers";
 import { Navigation } from "./components/navigation";
 import { Profile } from "./components/profile";
 import { ThemeSwitcher } from "./theme";
-import { MobileOnly } from "./utils/mobile";
 import { useParams } from "react-router-dom";
 import data from "./data.json";
+import Layout from "./SideBar";
+import { ProSidebarProvider } from "react-pro-sidebar";
 
 const ThemeWrap = styled.div`
   background: var(--ins-background-primary);
@@ -24,7 +24,7 @@ const Main = styled.main`
 
 export function ProfilePage() {
   const [theme, setTheme] = useState("light");
-  const {id} = useParams()
+  const { id } = useParams();
 
   let userInfo = "";
   data.profiles.forEach((user) => {
@@ -35,11 +35,15 @@ export function ProfilePage() {
 
   return (
     <ThemeWrap className={`__insta-${theme}-mode`}>
-      <Navigation />
-      <Main>
-        <Profile data={userInfo} />
-        <Gallery data={userInfo} />
-      </Main>
+      <ProSidebarProvider>
+        <Navigation />
+
+        <Layout></Layout>
+        <Main>
+          <Profile data={userInfo} />
+          <Gallery data={userInfo} />
+        </Main>
+      </ProSidebarProvider>
       <ThemeSwitcher theme={theme} setTheme={setTheme} />
     </ThemeWrap>
   );

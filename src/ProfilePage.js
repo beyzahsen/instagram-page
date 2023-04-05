@@ -28,7 +28,7 @@ export function ProfilePage() {
 
   let userInfo = "";
   data.profiles.forEach((user) => {
-    if (user.name.toLocaleLowerCase() == id.toLocaleLowerCase()) {
+    if (user.name.toLocaleLowerCase() === id.toLocaleLowerCase()) {
       userInfo = user;
     }
   });
@@ -37,7 +37,6 @@ export function ProfilePage() {
     <ThemeWrap className={`__insta-${theme}-mode`}>
       <ProSidebarProvider>
         <Navigation />
-
         <Layout></Layout>
         <Main>
           <Profile data={userInfo} />

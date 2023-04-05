@@ -15,9 +15,12 @@ export function Gallery(props) {
   return (
     <Grid>
       {props.data.posts.map((item, id) => (
-        <GalleryItem key={id} imagePath={item.postImage} imageCaption={item.caption} />
+        <GalleryItem
+          key={id}
+          imagePath={item.postImage}
+          imageCaption={item.caption}
+        />
       ))}
-
     </Grid>
   );
 }

@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { DesktopOnly, MobileOnly } from "../utils/mobile";
 import { KeyNumbers } from "./key-numbers";
-import data from "../data.json";
 
 const Header = styled.header`
   margin-bottom: 44px;

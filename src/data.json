@@ -13,15 +13,28 @@
             "posts":[
                 {
                     "postImage":"/images/galeri1.png",
-                    "caption":"caption"
+                    "caption":"caption #catcatcatcatcatcatcatcatcatcatcatcatc atcatcatcatcatcatcatcatcat"
                 },
                 {
                     "postImage":"/images/project-1.webp",
-                    "caption":"caption"
+                    "caption":"caption #meow catcatcatcatcatcatcatcatcatcat catcatcatcatcatcatcatcatcatcatcat"
                 },
                 {
                     "postImage":"/images/project-2.webp",
                     "caption":"caption2"
+                },
+                {
+                    "postImage":"/images/team-mem-2.webp",
+                    "caption":"caption2afgadfgadfkadfgladkfj"
+                },{
+                    "postImage":"/images/team-mem-2.webp",
+                    "caption":"caption2afgadfgadfkadfgladkfj"
+                },{
+                    "postImage":"/images/team-mem-2.webp",
+                    "caption":"caption2afgadfgadfkadfgladkfj"
+                },{
+                    "postImage":"/images/team-mem-2.webp",
+                    "caption":"caption2afgadfgadfkadfgladkfj"
                 }
             ]
         },

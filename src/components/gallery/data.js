@@ -1,5 +1,4 @@
-
-export const data = [
+/*export const data = [
   {
     imagepath: "/images/galeri1.png",
   },
@@ -10,3 +9,4 @@ export const data = [
     imagepath: "/images/project-2.webp",
   },
 ];
+*/

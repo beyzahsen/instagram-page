@@ -1,14 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import styled from "styled-components";
 import { Gallery } from "./components/gallery";
-import { KeyNumbers } from "./components/key-numbers";
 import { Navigation } from "./components/navigation";
 import { Profile } from "./components/profile";
 import { ThemeSwitcher } from "./theme";
-import { MobileOnly } from "./utils/mobile";
 import { useParams } from "react-router-dom";
-import data from "./data.json";
+import axios from "axios";
+
 
 const ThemeWrap = styled.div`
   background: var(--ins-background-primary);
@@ -25,22 +24,39 @@ const Main = styled.main`
 export function ProfilePage() {
   const [theme, setTheme] = useState("light");
   const {id} = useParams()
+  const [data,setData] = useState(null)
 
-  let userInfo = "";
-  data.profiles.forEach((user) => {
-    if (user.name.toLocaleLowerCase() == id.toLocaleLowerCase()) {
-      userInfo = user;
-    }
-  });
+  async function fetchUser(nameInsta){
+       await axios
+      .post("http://localhost:3100/api/getuser", {
+        name: nameInsta,
+      })
+      .then((res) => {        
+          setData(res.data.user[0]);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+  
+  useEffect(() => {
+    const nameInsta = id[0].toLocaleUpperCase() + id.slice(1).toLocaleLowerCase()
+    fetchUser(nameInsta)
+  },[])
 
-  return (
-    <ThemeWrap className={`__insta-${theme}-mode`}>
-      <Navigation />
-      <Main>
-        <Profile data={userInfo} />
-        <Gallery data={userInfo} />
-      </Main>
-      <ThemeSwitcher theme={theme} setTheme={setTheme} />
-    </ThemeWrap>
-  );
+  if(data){
+    return (
+      <ThemeWrap className={`__insta-${theme}-mode`}>
+        <Navigation />
+        <Main>
+          <Profile data={data} />
+          <Gallery data={data} />
+        </Main>
+        <ThemeSwitcher theme={theme} setTheme={setTheme} />
+      </ThemeWrap>
+    );
+  }
+  else{
+    return <h1>No User </h1>
+  }
 }

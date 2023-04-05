@@ -10,7 +10,6 @@ const Img = styled.img`
 `;
 
 export function GalleryItem({ imagePath,imageCaption }) {
-  console.log("imagePath - GalleryItem", imagePath);
   return (
     <Wrap>
       <Img alt="gallery-post" src={imagePath} />

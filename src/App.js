@@ -5,7 +5,6 @@ import styled from "styled-components";
 import "./styles.css";
 import { ProfilePage } from "./ProfilePage";
 import ImageUpload from "./ImageUpload";
-import data from "./data.json"
 
 const ThemeWrap = styled.div`
   background: var(--ins-background-primary);
@@ -13,8 +12,6 @@ const ThemeWrap = styled.div`
 
 export default function App() {
   const [theme, setTheme] = useState("light");
-
-  console.log(data);
 
   return (
     <Router>

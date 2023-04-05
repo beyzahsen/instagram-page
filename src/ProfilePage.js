@@ -8,6 +8,9 @@ import { ThemeSwitcher } from "./theme";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
+import data from "./data.json";
+import Layout from "./SideBar";
+import { ProSidebarProvider } from "react-pro-sidebar";
 
 const ThemeWrap = styled.div`
   background: var(--ins-background-primary);
@@ -26,6 +29,7 @@ export function ProfilePage() {
   const {id} = useParams()
   const [data,setData] = useState(null)
 
+
   async function fetchUser(nameInsta){
        await axios
       .post("http://localhost:3100/api/getuser", {
@@ -43,6 +47,7 @@ export function ProfilePage() {
     const nameInsta = id[0].toLocaleUpperCase() + id.slice(1).toLocaleLowerCase()
     fetchUser(nameInsta)
   },[])
+
 
   if(data){
     return (

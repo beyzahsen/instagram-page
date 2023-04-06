@@ -12,7 +12,6 @@ const Grid = styled.div`
 `;
 
 export function Gallery(props) {
-  console.log(props.data);
   return (
     <Grid>
       {props.data.posts.map((item, id) => (

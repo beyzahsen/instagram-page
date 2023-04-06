@@ -1,9 +1,30 @@
 import React from "react";
 import { Sidebar, Menu, MenuItem, useProSidebar } from "react-pro-sidebar";
-import data from "./data.json";
+import { useEffect } from "react";
+import axios from "axios";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+
 export default function Layout() {
   const { collapseSidebar } = useProSidebar();
+  const [data, setData] = useState(null);
+
+  async function fetchUser() {
+    await axios
+      .post("http://localhost:3100/api/getallusersnames")
+      .then((res) => {
+        console.log("asd");
+        console.log(res.data);
+        setData(res.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+  useEffect(() => {
+    fetchUser();
+  }, []);
 
   return (
     <div style={{ display: "flex", height: "100%", position: "fixed" }}>
@@ -17,13 +38,9 @@ export default function Layout() {
           >
             X
           </MenuItem>
-          {data.profiles.map((profile, index) => (
-            <MenuItem
-              key={index}
-              name={profile.name}
-              component={<Link to={"/" + profile.name} />}
-            >
-              {profile.name}
+          {data.names.map((val, indx) => (
+            <MenuItem key={indx} name={val} component={<Link to={"/" + val} />}>
+              {val}
             </MenuItem>
           ))}
         </Menu>

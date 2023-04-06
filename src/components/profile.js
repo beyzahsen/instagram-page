@@ -104,7 +104,6 @@ export function Profile(props) {
           </ProfileDescriptions>
         </div>
       </HeaderWrap>
-      <KeyNumbers num={props.data.info} />
     </Header>
   );
 }

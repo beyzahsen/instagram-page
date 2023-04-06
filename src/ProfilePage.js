@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import styled from "styled-components";
 import { Gallery } from "./components/gallery";
-import { Navigation } from "./components/navigation";
 import { Profile } from "./components/profile";
 import { useParams } from "react-router-dom";
 import axios from "axios";
@@ -19,45 +18,39 @@ const Main = styled.main`
 `;
 
 export function ProfilePage() {
-  const {id} = useParams()
-  const [data,setData] = useState(null)
-  
-  
-  async function fetchUser(nameInsta){
-       await axios
+  const { id } = useParams();
+  const [data, setData] = useState(null);
+
+  async function fetchUser(nameInsta) {
+    await axios
       .post("http://localhost:3100/api/getuser", {
         name: nameInsta,
       })
-      .then((res) => {        
-          setData(res.data.user[0]);
+      .then((res) => {
+        setData(res.data.user[0]);
       })
       .catch(function (error) {
         console.log(error);
       });
-  };
-  
+  }
+
   useEffect(() => {
-    const nameInsta = id[0].toLocaleUpperCase() + id.slice(1).toLocaleLowerCase()
-    fetchUser(nameInsta)
-  },[])
+    const nameInsta =
+      id[0].toLocaleUpperCase() + id.slice(1).toLocaleLowerCase();
+    fetchUser(nameInsta);
+  }, []);
 
-
-  if(data){
+  if (data) {
     return (
-    
-        <ProSidebarProvider>
-
-        <Navigation />
+      <ProSidebarProvider>
         <Layout></Layout>
         <Main>
           <Profile data={data} />
           <Gallery data={data} />
         </Main>
-        </ProSidebarProvider>
-      
+      </ProSidebarProvider>
     );
-  }
-  else{
-    return <h1>No User </h1>
+  } else {
+    return <h1>No User </h1>;
   }
 }

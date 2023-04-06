@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { NavLink as Link } from "react-router-dom";
 
 const Logo = styled.img`
   height: 60px;
@@ -16,6 +17,17 @@ const NavContent = styled.div`
     padding: 0 20px;
   }
 `;
+
+const NavLink = styled(Link)`
+  color: #808080;
+  display: flex;
+  align-items: flex-start;
+  text-decoration: none;
+  padding: 0 1rem;
+  height: 100%;
+  cursor: pointer;
+`;
+
 const Mock = styled.div`
   height: 54px;
 `;
@@ -29,24 +41,25 @@ const Fixed = styled.div`
   z-index: 1;
 `;
 
-export function Navigation({ lightThemeLogo, darkThemeLogo }) {
+export function Navigation() {
   return (
     <nav>
       <Mock></Mock>
       <Fixed>
         <NavContent>
-          <div className="light-theme-only">
-            <Logo alt="logo" src={lightThemeLogo} />
+          <Logo alt="logo" src="/images/Logo-Instagram.png" />
+          <div>
+            <NavLink to="/" activeStyle>
+              Home Page
+            </NavLink>
           </div>
-          <div className="dark-theme-only">
-            <Logo alt="logo" src={darkThemeLogo} />
+          <div>
+            <NavLink to="/adresgezgini" activeStyle>
+              Profil Pages
+            </NavLink>
           </div>
         </NavContent>
       </Fixed>
     </nav>
   );
 }
-Navigation.defaultProps = {
-  lightThemeLogo: "/images/Logo-Instagram.png",
-  darkThemeLogo: "/images/logo-white.png",
-};

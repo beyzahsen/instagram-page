@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { DesktopOnly, MobileOnly } from "../utils/mobile";
 import { KeyNumbers } from "./key-numbers";
-
 
 const Header = styled.header`
   margin-bottom: 44px;
@@ -61,13 +59,6 @@ const ProfileTitle = styled.div`
   }
 `;
 
-const ProfileDescriptionH1 = styled.h1`
-  font-weight: 600;
-  line-height: 24px;
-  @media only screen and (max-width: 735px) {
-    line-height: 20px;
-  }
-`;
 const ProfileDescriptionSpan = styled.span`
   font-weight: 400;
   line-height: 24px;
@@ -75,9 +66,7 @@ const ProfileDescriptionSpan = styled.span`
     line-height: 20px;
   }
 `;
-const ProfileDescriptionA = styled.a`
-  color: var(--ins-content-blue);
-`;
+
 const ProfileDescriptions = styled.div`
   @media only screen and (max-width: 735px) {
     padding-left: 16px;
@@ -103,40 +92,19 @@ export function Profile(props) {
               <ProfileH2>{props.data.name}</ProfileH2>
             </ProfileTitle>
           </ProfileRow>
-          <DesktopOnly>
-            <ProfileRow>
-              <KeyNumbers num={props.data.info} />
-            </ProfileRow>
 
-            <ProfileDescriptions
-            // class="row last"
-            >
-              <ProfileDescriptionSpan>
-                {props.data.info.bio}
-              </ProfileDescriptionSpan>
-            </ProfileDescriptions>
-          </DesktopOnly>
-        </div>
-      </HeaderWrap>
-      <MobileOnly>
-        <ProfileRow>
+          <ProfileRow>
+            <KeyNumbers num={props.data.info} />
+          </ProfileRow>
+
           <ProfileDescriptions>
-            <ProfileDescriptionH1>cato</ProfileDescriptionH1>
             <ProfileDescriptionSpan>
-              Everyone has a story to tell.
-              <br />
-              Tag <ProfileDescriptionA>#ShotoniPhone</ProfileDescriptionA> to
-              take part.
+              {props.data.info.bio}
             </ProfileDescriptionSpan>
           </ProfileDescriptions>
-        </ProfileRow>
-      </MobileOnly>
-      <MobileOnly>
-        <KeyNumbers num={props.data.info} />
-      </MobileOnly>
+        </div>
+      </HeaderWrap>
+      <KeyNumbers num={props.data.info} />
     </Header>
   );
 }
-Profile.defaultProps = {
-  profileImage: "/images/project-2.webp",
-};

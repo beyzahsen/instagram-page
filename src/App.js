@@ -5,8 +5,6 @@ import { ProfilePage } from "./ProfilePage";
 import Home from "./HomePage";
 
 export default function App() {
-
-
   return (
     <div>
       <Router>

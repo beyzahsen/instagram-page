@@ -5,11 +5,8 @@ import { Link } from "react-router-dom";
 export default function Layout() {
   const { collapseSidebar } = useProSidebar();
 
-  /*{props.data.posts.map((item, id) => (
-        <MenuItem key={id} imagePath={item.postImage} imageCaption={item.caption} />
-      ))} */
   return (
-    <div style={{ display: "flex", height: "100%", position: "absolute" }}>
+    <div style={{ display: "flex", height: "100%", position: "fixed" }}>
       <Sidebar>
         <Menu style={{ background: "#F8F9F9" }}>
           <MenuItem
@@ -18,7 +15,7 @@ export default function Layout() {
             }}
             style={{ textAlign: "center", background: "#F5B7B1" }}
           >
-            Collapse
+            X
           </MenuItem>
           {data.profiles.map((profile, index) => (
             <MenuItem

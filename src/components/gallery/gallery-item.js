@@ -13,7 +13,7 @@ export function GalleryItem({ imagePath,imageCaption }) {
   return (
     <Wrap>
       <Img alt="gallery-post" src={imagePath} />
-      <p>{imageCaption}</p>
+      <p style={{ position: "flex" }}>{imageCaption}</p>
     </Wrap>
   );
 }

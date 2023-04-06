@@ -11,40 +11,41 @@ export default function Layout() {
 
   async function fetchUser() {
     await axios
-      .post("http://localhost:3100/api/getallusersnames")
-      .then((res) => {
-        console.log("asd");
-        console.log(res.data);
-        setData(res.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
+      .post("http://localhost:3100/api/getallusersnames").then((res) => {setData(res.data); console.log(res);}).catch(function (error) {console.log(error);});
+    }
+    
+  useEffect(() => {      
+    fetchUser()
+  },[]);
 
-  useEffect(() => {
-    fetchUser();
-  }, []);
-
-  return (
-    <div style={{ display: "flex", height: "100%", position: "fixed" }}>
-      <Sidebar>
-        <Menu style={{ background: "#F8F9F9" }}>
-          <MenuItem
-            onClick={() => {
-              collapseSidebar();
-            }}
-            style={{ textAlign: "center", background: "#F5B7B1" }}
-          >
-            X
-          </MenuItem>
-          {data.names.map((val, indx) => (
-            <MenuItem key={indx} name={val} component={<Link to={"/" + val} />}>
-              {val}
+  if(data){
+    return (
+      <div style={{ display: "flex", height: "100%", position: "fixed" }}>
+        <Sidebar>
+          <Menu style={{ background: "#F8F9F9" }}>
+            <MenuItem
+              onClick={() => {
+                collapseSidebar();
+              }}
+              style={{ textAlign: "center", background: "#F5B7B1" }}
+            >
+              X
             </MenuItem>
-          ))}
-        </Menu>
-      </Sidebar>
-    </div>
-  );
+            {data.names.map((val, indx) => (
+              <MenuItem
+                key={indx}
+                name={val}
+                component={<Link to={"/" + val} />}
+              >
+                {val}
+              </MenuItem>
+            ))}
+          </Menu>
+        </Sidebar>
+      </div>
+    );
+  }
+  else{
+    return <h1>Error</h1>
+  }
 }

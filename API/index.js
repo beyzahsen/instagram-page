@@ -24,7 +24,6 @@ router.post("/api/getuser", async (req, res) => {
 
 router.post("/api/getallusersnames", async (req, res) => {
   try {
-    console.log("AAAAAA");
     const users = await User.find();
     const arr = [];
     users.map((val, inx) => {

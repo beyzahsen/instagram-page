@@ -4,17 +4,9 @@ import styled from "styled-components";
 import { Gallery } from "./components/gallery";
 import { Navigation } from "./components/navigation";
 import { Profile } from "./components/profile";
-import { ThemeSwitcher } from "./theme";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
-import data from "./data.json";
-import Layout from "./SideBar";
-import { ProSidebarProvider } from "react-pro-sidebar";
-
-const ThemeWrap = styled.div`
-  background: var(--ins-background-primary);
-`;
 const Main = styled.main`
   padding: 30px 20px 0px 20px;
   max-width: 935px;
@@ -25,7 +17,6 @@ const Main = styled.main`
 `;
 
 export function ProfilePage() {
-  const [theme, setTheme] = useState("light");
   const {id} = useParams()
   const [data,setData] = useState(null)
 
@@ -51,14 +42,13 @@ export function ProfilePage() {
 
   if(data){
     return (
-      <ThemeWrap className={`__insta-${theme}-mode`}>
+      <div>
         <Navigation />
         <Main>
           <Profile data={data} />
           <Gallery data={data} />
         </Main>
-        <ThemeSwitcher theme={theme} setTheme={setTheme} />
-      </ThemeWrap>
+      </div>
     );
   }
   else{

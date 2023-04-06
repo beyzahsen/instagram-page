@@ -2,16 +2,9 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./styles.css";
 import { ProfilePage } from "./ProfilePage";
-import ImageUpload from "./ImageUpload";
-
-const ThemeWrap = styled.div`
-  background: var(--ins-background-primary);
-`;
-
 import Home from "./HomePage";
 
 export default function App() {
-  console.log(data);
 
 
   return (

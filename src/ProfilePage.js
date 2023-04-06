@@ -1,12 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import { Gallery } from "./components/gallery";
 import { Navigation } from "./components/navigation";
 import { Profile } from "./components/profile";
 import { useParams } from "react-router-dom";
-import data from "./data.json";
-import Layout from "./SideBar";
-import { ProSidebarProvider } from "react-pro-sidebar";
+import axios from "axios";
 
 const Main = styled.main`
   padding: 30px 20px 0px 20px;
@@ -18,23 +17,41 @@ const Main = styled.main`
 `;
 
 export function ProfilePage() {
-  const { id } = useParams();
+  const {id} = useParams()
+  const [data,setData] = useState(null)
 
-  let userInfo = "";
-  data.profiles.forEach((user) => {
-    if (user.name.toLocaleLowerCase() === id.toLocaleLowerCase()) {
-      userInfo = user;
-    }
-  });
 
-  return (
-    <ProSidebarProvider>
-      <Navigation />
-      <Layout></Layout>
-      <Main>
-        <Profile data={userInfo} />
-        <Gallery data={userInfo} />
-      </Main>
-    </ProSidebarProvider>
-  );
+  async function fetchUser(nameInsta){
+       await axios
+      .post("http://localhost:3100/api/getuser", {
+        name: nameInsta,
+      })
+      .then((res) => {        
+          setData(res.data.user[0]);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+  
+  useEffect(() => {
+    const nameInsta = id[0].toLocaleUpperCase() + id.slice(1).toLocaleLowerCase()
+    fetchUser(nameInsta)
+  },[])
+
+
+  if(data){
+    return (
+      <div>
+        <Navigation />
+        <Main>
+          <Profile data={data} />
+          <Gallery data={data} />
+        </Main>
+      </div>
+    );
+  }
+  else{
+    return <h1>No User </h1>
+  }
 }

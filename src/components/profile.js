@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { KeyNumbers } from "./key-numbers";
-
+import Popup from "../DetailImagePopup";
 const Header = styled.header`
   margin-bottom: 44px;
   background: var(--ins-background-primary);
@@ -104,6 +104,7 @@ export function Profile(props) {
           </ProfileDescriptions>
         </div>
       </HeaderWrap>
+      <Popup></Popup>
     </Header>
   );
 }

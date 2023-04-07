@@ -9,10 +9,10 @@ const Img = styled.img`
   display: block;
 `;
 
-export function GalleryItem({ imagePath,imageCaption }) {
+export function GalleryItem({ imagePath, imageCaption }) {
   return (
     <Wrap>
-      <Img alt="gallery-post" src={imagePath} />
+      <Img alt="gallery-post" src={imagePath} style={{ zIndex: 0 }} />
       <p style={{ position: "flex" }}>{imageCaption}</p>
     </Wrap>
   );

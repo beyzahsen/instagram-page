@@ -24,7 +24,7 @@ export function ProfilePage() {
   async function fetchUser(nameInsta) {
     await axios
       .post("http://localhost:3100/api/getuser", {
-        name: nameInsta,
+        userName: nameInsta,
       })
       .then((res) => {
         setData(res.data.user[0]);
@@ -35,8 +35,7 @@ export function ProfilePage() {
   }
 
   useEffect(() => {
-    const nameInsta =
-      id[0].toLocaleUpperCase() + id.slice(1).toLocaleLowerCase();
+    const nameInsta = id.toLocaleLowerCase();
     fetchUser(nameInsta);
   }, []);
 

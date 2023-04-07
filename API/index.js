@@ -12,7 +12,7 @@ const router = express.Router();
 router.post("/api/getuser", async (req, res) => {
   try {
     console.log(req.body);
-    const user = await User.find({ name: req.body.name });
+    const user = await User.find({ userName: req.body.userName });
     console.log(user);
     res.json({ user });
     return;
@@ -33,6 +33,16 @@ router.post("/api/getallusersnames", async (req, res) => {
     return;
   } catch (e) {
     res.json({ error: "Something went wrong" });
+    return;
+  }
+});
+
+router.post("/api/addimagetouser", async (req, res) => {
+  try {
+    console.log(req.body);
+    const user = await User.find({ name: req.body.name });
+  } catch (e) {
+    res.json({ error: "Something went wrong when adding image" });
     return;
   }
 });

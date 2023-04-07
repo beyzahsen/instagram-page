@@ -16,17 +16,35 @@ export default function Popup() {
 
   return (
     <>
-      <button onClick={toggleModal} className="btn-modal">
-        Post Ekle
+      <button
+        onClick={toggleModal}
+        className="btn-modal"
+        style={{
+          padding: 0,
+          position: "fixed",
+          height: "60px",
+          width: "60px",
+          borderRadius: "100%",
+          bottom: "100px",
+          right: "50%",
+          cursor: "pointer",
+          zIndex: 1,
+        }}
+      >
+        +
       </button>
       {modal && (
         <div className="modal" style={{ zIndex: 51 }}>
           <div className="overlay">
             <div className="modal-content">
-              <h2>Post Ekle</h2>
-              <button onClick={toggleModal} className="close-modal">
-                X
-              </button>
+              <h2 style={{ margin: 10 }}>Post Ekle</h2>
+              <buttone
+                style={{ background: "#E74C3C" }}
+                onClick={toggleModal}
+                className="close-modal"
+              >
+                <p>x</p>
+              </buttone>
               <ImageUpload></ImageUpload>
             </div>
           </div>

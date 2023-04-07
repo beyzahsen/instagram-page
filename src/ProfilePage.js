@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { ProSidebarProvider } from "react-pro-sidebar";
 import Layout from "./SideBar";
+import Popup from "./DetailImagePopup";
 
 const Main = styled.main`
   padding: 30px 20px 0px 20px;
@@ -46,6 +47,7 @@ export function ProfilePage() {
         <Main>
           <Profile data={data} />
           <Gallery data={data} />
+          <Popup></Popup>
         </Main>
       </ProSidebarProvider>
     );

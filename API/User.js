@@ -43,7 +43,6 @@ const userSchema = mongoose.Schema({
     {
       postImage: {
         type: String,
-        required: true,
         trim: true,
       },
       caption: {

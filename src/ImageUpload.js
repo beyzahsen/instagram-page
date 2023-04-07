@@ -21,10 +21,32 @@ export default function ImageUpload() {
   }
 
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
       <input type="file" name="file" onChange={handleChange} />
-      <input type="text" placeholder="Açıklama (caption) giriniz:" />
-      <button onClick={handleApi}>Ekle</button>
+      <textarea
+        type="text"
+        placeholder="Açıklama (caption) giriniz:"
+        style={{
+          width: "300px",
+          height: "80px",
+          paddingLeft: "8px",
+          paddingTop: "6px",
+          paddingBottom: "6px",
+          margin: "10px",
+          resize: "none",
+        }}
+      />
+
+      <button className="btn-add" onClick={handleApi}>
+        Ekle
+      </button>
     </div>
   );
 }

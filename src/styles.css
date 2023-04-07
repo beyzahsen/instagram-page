@@ -17,7 +17,7 @@ body {
 .btn-add{
   cursor: pointer;
   background-color:cadetblue;
-  border-radius: 5;
+  border-radius: 5px;
   height: 40px;
   width: 100px;
   margin: 10px; 

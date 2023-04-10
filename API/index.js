@@ -47,6 +47,27 @@ router.post("/api/addimagetouser", async (req, res) => {
   }
 });
 
+router.post("/api/addpost",async (req,res) => {
+  try {
+    const data = req.body.data
+    const userName = data.userName
+    const user = await User.findOne({userName})
+    if(user){
+      const user = await User.findOneAndUpdate({userName},{$push:{posts:{caption:data.posts.caption}}})
+      user.save()
+      res.json("Succesfull")
+    }
+    else{
+      const user = new User({userName,name:data.name,info:data.info,posts:[{caption:data.post.caption}]})
+      user.save()
+      res.json("Succesfull")
+    }
+  } catch (e) {
+    console.log(e);
+    res.json("Error")
+  }
+})
+
 app.use(router);
 
 app.listen(3100, () => {

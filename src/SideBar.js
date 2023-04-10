@@ -51,11 +51,11 @@ export default function Layout() {
                 key={indx}
                 name={val}
                 onClick={() => {
-                  navigate(`/${val}`);
+                  navigate(`/${val[1]}`);
                   window.location.reload(true);
                 }}
               >
-                {val}
+                {val[0]}
               </MenuItem>
             ))}
           </Menu>

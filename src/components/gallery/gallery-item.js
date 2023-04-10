@@ -1,5 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
+import DetailPopup from "../../ImageDetailsPopup";
 
 const Wrap = styled.div`
   position: relative;
@@ -9,10 +10,19 @@ const Img = styled.img`
   display: block;
 `;
 
+function showDetail() {
+  return <DetailPopup></DetailPopup>;
+}
+
 export function GalleryItem({ imagePath, imageCaption }) {
   return (
     <Wrap>
-      <Img alt="gallery-post" src={imagePath} style={{ zIndex: 0 }} />
+      <Img
+        alt="gallery-post"
+        src={imagePath}
+        style={{ zIndex: 0 }}
+        onClick={showDetail}
+      />
       <p style={{ position: "flex" }}>{imageCaption}</p>
     </Wrap>
   );

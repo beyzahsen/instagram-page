@@ -1,4 +1,4 @@
-import "./DetailImagePopup.css";
+import "./AddImagePopup.css";
 import React, { useState } from "react";
 import ImageUpload from "./ImageUpload";
 
@@ -11,7 +11,7 @@ export default function Popup() {
   if (modal) {
     document.body.classList.add("active-modal");
   } else {
-    document.body.classList.remove("active.modal");
+    document.body.classList.remove("active-modal");
   }
 
   return (
@@ -25,7 +25,7 @@ export default function Popup() {
           height: "60px",
           width: "60px",
           borderRadius: "100%",
-          bottom: "100px",
+          bottom: "50px",
           right: "50%",
           cursor: "pointer",
           zIndex: 1,

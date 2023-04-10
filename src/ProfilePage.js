@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { ProSidebarProvider } from "react-pro-sidebar";
 import Layout from "./SideBar";
-import Popup from "./DetailImagePopup";
+import Popup from "./AddImagePopup";
 
 const Main = styled.main`
   padding: 30px 20px 0px 20px;

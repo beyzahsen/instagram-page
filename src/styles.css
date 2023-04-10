@@ -23,6 +23,10 @@ body {
   margin: 10px; 
 }
 
+.image-details .image-active{
+  display: none;
+}
+
 .flex-row > img {
   width: 25px;
   height: 25px;

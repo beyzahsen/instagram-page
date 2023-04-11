@@ -174,8 +174,8 @@ export default function Home() {
                 </div>   
       </div>
       <div class="last-right">
-        <img src="https://images.unsplash.com/photo-1519058082700-08a0b56da9b4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60" />
-        <h2 class="name2">BENJAMIN HARDMAN</h2>
+        <img src="https://adresgezgini.com/themes/2018/images/medya/AG-logo-BeyazZemin-Dikey.png" />
+        <h2 class="name2">AdresGezgini</h2>
         <div class="follows"> 
          <div class="post">
             <p>Photos</p>
@@ -187,26 +187,23 @@ export default function Home() {
           </div> 
         </div>
         <div class="read-me">
-          Benjamin is a freelance photographer in Iceland. He is interested in UI development and design.
- 
-          Five years ago Benjamin embarked on his first photographic mission in an Arctict winter climate
-                    Benjamin is a freelance photographer in Iceland. He is interested in UI development and design.
- 
-          Five years ago Benjamin embarked on his first photographic mission in an Arctict winter climate...<span class="read"> Read more</span>
+          AdresGezgini ...
+
+          ...
         </div>
         
           <div class="feature"> 
          <div class="post2">
             <p>Locations</p>
-            <div class="post-num">Based in Iceland</div>
+            <div class="post-num">Based in Turkey</div>
           </div>
           <div class="post2">
             <p>Profession</p>
-            <div class="post-num">Photographer</div>
+            <div class="post-num">Yazılım-ArGe-Reklam Şirketi</div>
           </div>
              <div class="post2">
             <p>Profession</p>
-            <div class="post-num">Developer</div>
+            <div class="post-num">AdresGezgini</div>
             </div>
         </div>
       </div>

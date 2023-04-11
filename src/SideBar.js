@@ -28,7 +28,14 @@ export default function Layout() {
 
   if (data) {
     return (
-      <div style={{ display: "flex", height: "100%", position: "fixed" }}>
+      <div
+        style={{
+          display: "flex",
+          height: "100%",
+          position: "fixed",
+          zIndex: 1,
+        }}
+      >
         <Sidebar>
           <Menu style={{ background: "#F8F9F9" }}>
             <MenuItem
@@ -44,11 +51,11 @@ export default function Layout() {
                 key={indx}
                 name={val}
                 onClick={() => {
-                  navigate(`/${val}`);
+                  navigate(`/${val[1]}`);
                   window.location.reload(true);
                 }}
               >
-                {val}
+                {val[0]}
               </MenuItem>
             ))}
           </Menu>

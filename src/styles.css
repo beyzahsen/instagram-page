@@ -13,6 +13,20 @@ body {
   font-family: Sans-serif;
 }
 
+
+.btn-add{
+  cursor: pointer;
+  background-color:cadetblue;
+  border-radius: 5px;
+  height: 40px;
+  width: 100px;
+  margin: 10px; 
+}
+
+.image-details .image-active{
+  display: none;
+}
+
 .flex-row > img {
   width: 25px;
   height: 25px;

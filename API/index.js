@@ -27,7 +27,7 @@ router.post("/api/getallusersnames", async (req, res) => {
     const users = await User.find();
     const arr = [];
     users.map((val, inx) => {
-      arr.push(val.name);
+      arr.push([val.name, val.userName]);
     });
     res.json({ names: arr });
     return;
@@ -47,7 +47,7 @@ router.post("/api/addimagetouser", async (req, res) => {
   }
 });
 
-router.post("/api/addpost",async (req,res) => {
+router.post("/api/addpost", async (req, res) => {
   try {
     console.log(req.body);
     const data = req.body
@@ -88,9 +88,9 @@ router.post("/api/addpost",async (req,res) => {
     }
   } catch (e) {
     console.log(e);
-    res.json("Error")
+    res.json("Error");
   }
-})
+});
 
 app.use(router);
 

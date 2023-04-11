@@ -1,53 +1,31 @@
 import "./AddImagePopup.css";
-import React, { useState } from "react";
+import React from "react";
 
-export default function DetailPopup() {
-  const [modal, setModal] = useState(false);
-  const toggleModal = () => {
-    setModal(!modal);
-  };
-
-  if (modal) {
-    document.body.classList.add("active-modal");
-  } else {
-    document.body.classList.remove("active-modal");
-  }
-
+export default function DetailPopup({ imag, capt, toggleModal }) {
   return (
-    <>
-      <button
-        onClick={toggleModal}
-        className="btn-modal"
-        style={{
-          padding: 0,
-          position: "fixed",
-          height: "60px",
-          width: "60px",
-          borderRadius: "100%",
-          bottom: "100px",
-          right: "50%",
-          cursor: "pointer",
-          zIndex: 1,
-        }}
-      >
-        +
-      </button>
-      {modal && (
-        <div className="modal" style={{ zIndex: 51 }}>
-          <div className="overlay">
-            <div className="modal-content">
-              <h2 style={{ margin: 10 }}>Post Ekle</h2>
-              <buttone
-                style={{ background: "#E74C3C" }}
-                onClick={toggleModal}
-                className="close-modal"
-              >
-                <p>x</p>
-              </buttone>
-            </div>
-          </div>
+    <div className="modal" style={{ zIndex: 51 }}>
+      <div className="overlay">
+        <div
+          className="modal-content"
+          style={{
+            width: "700px",
+            height: "500px",
+            overflow: "auto",
+            whiteSpace: "pre-wrap",
+          }}
+        >
+          <h2 style={{ margin: 10, fontWeight: "bold" }}>Post Detayları</h2>
+          <button
+            style={{ background: "#E74C3C" }}
+            onClick={toggleModal}
+            className="close-modal"
+          >
+            <p>x</p>
+          </button>
+          <img style={{ width: "530px" }} src={imag} />
+          <div>{capt}</div>
         </div>
-      )}
-    </>
+      </div>
+    </div>
   );
 }

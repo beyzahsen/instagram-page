@@ -30,7 +30,7 @@ export function GalleryItem({ imagePath, imageCaption }) {
         <Img
           alt="gallery-post"
           src={imagePath}
-          style={{ zIndex: 0 }}
+          style={{ zIndex: 0, cursor: "pointer" }}
           onClick={handleShowDialog}
         />
       </Wrap>

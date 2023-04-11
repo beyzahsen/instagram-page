@@ -56,6 +56,17 @@ router.post("/api/addpost", async (req, res) => {
   try {
     console.log(req.body);
     const data = req.body;
+    if (
+      data.userName == undefined &&
+      data.name == undefined &&
+      data.info.posts == undefined &&
+      data.info.followers == undefined &&
+      data.info.folllowing == undefined &&
+      data.info.bio == undefined
+    ) {
+      res.json("Error");
+      return;
+    }
     const userName = data.userName;
     const user = await User.findOne({ userName });
     if (user) {
@@ -66,6 +77,7 @@ router.post("/api/addpost", async (req, res) => {
         );
         user.save();
         res.json("Succesfull");
+        return;
       } else {
         const user = await User.findOneAndUpdate(
           { userName },
@@ -73,6 +85,7 @@ router.post("/api/addpost", async (req, res) => {
         );
         user.save();
         res.json("Succesfull");
+        return;
       }
     } else {
       if (data.post.caption == undefined) {
@@ -84,6 +97,7 @@ router.post("/api/addpost", async (req, res) => {
         });
         user.save();
         res.json("Succesfull");
+        return;
       } else {
         const user = new User({
           userName,
@@ -93,11 +107,13 @@ router.post("/api/addpost", async (req, res) => {
         });
         user.save();
         res.json("Succesfull");
+        return;
       }
     }
   } catch (e) {
     console.log(e);
     res.json("Error");
+    return;
   }
 });
 

@@ -37,14 +37,14 @@ export default function Popup() {
         <div className="modal" style={{ zIndex: 51 }}>
           <div className="overlay">
             <div className="modal-content">
-              <h2 style={{ margin: 10 }}>Post Ekle</h2>
-              <buttone
+              <h2 style={{ margin: 10, fontWeight: "bold" }}>Post Ekle</h2>
+              <button
                 style={{ background: "#E74C3C" }}
                 onClick={toggleModal}
                 className="close-modal"
               >
                 <p>x</p>
-              </buttone>
+              </button>
               <ImageUpload></ImageUpload>
             </div>
           </div>

@@ -11,7 +11,7 @@ const router = express.Router();
 
 router.post("/api/getuser", async (req, res) => {
   try {
-    console.log(req.body)
+    console.log(req.body);
     const user = await User.find({ userName: req.body.userName });
     console.log(user);
     res.json({ user });
@@ -39,27 +39,34 @@ router.post("/api/getallusersnames", async (req, res) => {
 
 router.post("/api/addimagetouser", async (req, res) => {
   try {
+    console.log("ADD IMAGE TO USER API");
     console.log(req.body);
-    const user = await User.find({ name: req.body.name });
+    console.log(req.file); // this will log the file metadata
+
+    // Here you can save the image to your database using a library like 'fs'
+
+    res.json({ success: true });
   } catch (e) {
+    console.log(e);
     res.json({ error: "Something went wrong when adding image" });
-    return;
   }
 });
 
 router.post("/api/addpost", async (req, res) => {
   try {
     console.log(req.body);
-    const data = req.body
-    const userName = data.userName
-    const user = await User.findOne({userName})
-    if(user){
-      if(data.post.caption == undefined){
-        const user = await User.findOneAndUpdate({userName},{$push:{posts:{caption:""}}})
-        user.save()
-        res.json("Succesfull")
-      }
-      else{
+    const data = req.body;
+    const userName = data.userName;
+    const user = await User.findOne({ userName });
+    if (user) {
+      if (data.post.caption == undefined) {
+        const user = await User.findOneAndUpdate(
+          { userName },
+          { $push: { posts: { caption: "" } } }
+        );
+        user.save();
+        res.json("Succesfull");
+      } else {
         const user = await User.findOneAndUpdate(
           { userName },
           { $push: { posts: { caption: data.post.caption } } }
@@ -67,15 +74,17 @@ router.post("/api/addpost", async (req, res) => {
         user.save();
         res.json("Succesfull");
       }
-    }
-    else{
-      if(data.post.caption == undefined){
-        const user = new User({userName,name:data.name,info:data.info,posts:[{caption:""}]})
-        user.save()
-        res.json("Succesfull")
-
-      }
-      else{
+    } else {
+      if (data.post.caption == undefined) {
+        const user = new User({
+          userName,
+          name: data.name,
+          info: data.info,
+          posts: [{ caption: "" }],
+        });
+        user.save();
+        res.json("Succesfull");
+      } else {
         const user = new User({
           userName,
           name: data.name,

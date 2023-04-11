@@ -4,7 +4,8 @@ import "./styles.css";
 import axios from "axios";
 
 export default function ImageUpload() {
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState(null);
+  const [caption, setCaption] = useState("");
 
   const handleChange = (e) => {
     console.log(e.target.files);
@@ -12,13 +13,20 @@ export default function ImageUpload() {
   };
 
   function handleApi() {
+    if (!image) {
+      alert("Please select an image");
+      return;
+    }
     const url = "http://localhost:3100/api/addimagetouser";
-    const formData = new FormData();
-    formData.append("image", image);
-    axios.post(url, formData).then((res) => {
+
+    axios.post(url, { caption, image }).then((res) => {
       console.log(res);
     });
   }
+
+  const handleCaptionChange = (e) => {
+    setCaption(e.target.value);
+  };
 
   return (
     <div
@@ -42,6 +50,8 @@ export default function ImageUpload() {
           margin: "10px",
           resize: "none",
         }}
+        value={caption}
+        onChange={handleCaptionChange}
       />
 
       <button className="btn-add" onClick={handleApi}>

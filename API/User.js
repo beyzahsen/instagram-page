@@ -15,7 +15,6 @@ const userSchema = mongoose.Schema({
   },
   profilePic: {
     type: String,
-    required: true,
     trim: true,
   },
   info: {
@@ -43,7 +42,6 @@ const userSchema = mongoose.Schema({
     {
       postImage: {
         type: String,
-        required: true,
         trim: true,
       },
       caption: {

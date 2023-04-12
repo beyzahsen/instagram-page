@@ -12,24 +12,10 @@ export default function Home() {
         <img src="https://i.ibb.co/crgCrWT/instagram.png" />
         <h3 class="insta-writing">Instagram</h3>
       </div>
-      <div class="profil-img"></div>
+
       <div class="profil-info">
-        <h2 class="name">AdresGezgini</h2>
-        <h3 class="city">Izmir, Turkey</h3>
-        <div class="numbers">
-          <div class="post">
-            <p>Post</p>
-            <div class="post-num">116</div>
-          </div>
-          <div class="post">
-            <p>Followers</p>
-            <div class="post-num">48m</div>
-          </div>
-          <div class="post">
-            <p>Following</p>
-            <div class="post-num">48m</div>
-          </div>
-        </div>
+
+
         <div class="menu-elements">
           <div class="icons">
             <img src="https://i.ibb.co/y8wD2HZ/explore-tool.png" />

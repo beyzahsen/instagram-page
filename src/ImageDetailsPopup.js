@@ -22,7 +22,7 @@ export default function DetailPopup({ imag, capt, toggleModal }) {
           >
             <p>x</p>
           </button>
-          <img style={{ width: "530px" }} src={imag} />
+          <img style={{ width: "530px" }} src={imag} alt="post_detail" />
           <div>{capt}</div>
         </div>
       </div>

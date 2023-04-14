@@ -83,7 +83,11 @@ export function Profile(props) {
     <Header>
       <HeaderWrap>
         <ProfilePic>
-          <ProfileImg src={props.data.profilePic} alt="profile-logo" />
+          {props.data.profilePic ? (
+            <ProfileImg src={props.data.profilePic} alt="profile-logo" />
+          ) : (
+            <ProfileImg src="./images/def-pp.webp" alt="default-profile-logo" />
+          )}
         </ProfilePic>
         <div>
           <ProfileRow>

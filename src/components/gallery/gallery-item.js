@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import DetailPopup from "../../ImageDetailsPopup";
 import React, { useState } from "react";
+import CardCaption from "../../CardCaption";
 
 const Wrap = styled.div`
   position: relative;
@@ -15,7 +16,6 @@ export function GalleryItem({ imagePath, imageCaption }) {
 
   const handleShowDialog = () => {
     setModal(!modal);
-    console.log("clicked");
   };
 
   if (modal) {
@@ -24,27 +24,35 @@ export function GalleryItem({ imagePath, imageCaption }) {
     document.body.classList.remove("active-modal");
   }
 
-  return (
-    <>
-      <Wrap>
-        <Img
-          alt="gallery-post"
-          src={imagePath}
-          style={{ zIndex: 0, cursor: "pointer" }}
-          onClick={handleShowDialog}
-        />
-      </Wrap>
-      {modal && (
-        <DetailPopup
-          imag={imagePath}
-          capt={imageCaption}
-          toggleModal={handleShowDialog}
-        />
-      )}
-    </>
-  );
+  if (imagePath) {
+    return (
+      <>
+        <Wrap>
+          <Img
+            alt="post image"
+            src={imagePath}
+            style={{ zIndex: 0, cursor: "pointer" }}
+            onClick={handleShowDialog}
+          />
+        </Wrap>
+        {modal && (
+          <DetailPopup
+            imag={imagePath}
+            capt={imageCaption}
+            toggleModal={handleShowDialog}
+          />
+        )}
+      </>
+    );
+  } else if (imageCaption) {
+    return (
+      <>
+        <Wrap>
+          <CardCaption imag="" imageCaption={imageCaption}></CardCaption>
+        </Wrap>
+      </>
+    );
+  } else {
+    return <p>Error</p>;
+  }
 }
-
-GalleryItem.defaultProps = {
-  imagePath: "/images/transparent.png",
-};

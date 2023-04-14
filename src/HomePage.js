@@ -42,32 +42,44 @@ export default function Home() {
             <div class="profil-info">
               <div class="menu-elements">
                 <div class="icons">
-                  <img src="https://i.ibb.co/y8wD2HZ/explore-tool.png" />
+                  <img
+                    alt="icon"
+                    src="https://i.ibb.co/y8wD2HZ/explore-tool.png"
+                  />
                   <div class="exp-writing"> Explore</div>
                 </div>
 
                 <div class="icons">
-                  <img src="https://i.ibb.co/tsDcKD1/hashtag.png" />
+                  <img alt="icon" src="https://i.ibb.co/tsDcKD1/hashtag.png" />
                   <div class="trend-writing"> Trending Tags</div>
                 </div>
 
                 <div class="icons">
-                  <img src="https://i.ibb.co/XDnYxL9/user-symbol-of-thin-outline.png" />
+                  <img
+                    alt="icon"
+                    src="https://i.ibb.co/XDnYxL9/user-symbol-of-thin-outline.png"
+                  />
                   <div class="people-writing"> People </div>
                 </div>
 
                 <div class="icons">
-                  <img src="https://i.ibb.co/dWcct0k/notification.png" />
+                  <img
+                    alt="icon"
+                    src="https://i.ibb.co/dWcct0k/notification.png"
+                  />
                   <div class="notif-writing"> Notification </div>
                 </div>
 
                 <div class="icons">
-                  <img src="https://i.ibb.co/rQcCQcL/direction.png" />
+                  <img
+                    alt="icon"
+                    src="https://i.ibb.co/rQcCQcL/direction.png"
+                  />
                   <div class="direct-writing"> Direct </div>
                 </div>
 
                 <div class="icons">
-                  <img src="https://i.ibb.co/smVnQkg/settings.png" />
+                  <img alt="icon" src="https://i.ibb.co/smVnQkg/settings.png" />
                   <div class="set-writing"> Settings</div>
                 </div>
               </div>

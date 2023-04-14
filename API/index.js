@@ -27,7 +27,7 @@ router.post("/api/getallusersnames", async (req, res) => {
     const users = await User.find();
     const arr = [];
     users.map((val, inx) => {
-      arr.push([val.name, val.userName]);
+      arr.push([val.name, val.userName, val.info.bio]);
     });
     res.json({ names: arr });
     return;

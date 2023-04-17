@@ -6,7 +6,7 @@ import { CardActionArea } from "@mui/material";
 import DetailPopup from "./ImageDetailsPopup";
 import { useState } from "react";
 
-export default function CardCaption({ imag, imageCaption }) {
+export default function CardCaption({ imag, imageCaption, id, userName }) {
   const [modal, setModal] = useState(false);
 
   const handleShowDialog = () => {
@@ -25,12 +25,15 @@ export default function CardCaption({ imag, imageCaption }) {
         <CardActionArea
           sx={{ width: 350, height: 250 }}
           onClick={handleShowDialog}
+          id={id}
         >
           {modal && (
             <DetailPopup
               imag={imag}
               capt={imageCaption}
               toggleModal={handleShowDialog}
+              id={id}
+              userName={userName}
             />
           )}
           <CardContent>

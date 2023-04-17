@@ -11,7 +11,7 @@ const Img = styled.img`
   display: block;
 `;
 
-export function GalleryItem({ imagePath, imageCaption }) {
+export function GalleryItem({ imagePath, imageCaption, id, userName }) {
   const [modal, setModal] = useState(false);
 
   const handleShowDialog = () => {
@@ -29,10 +29,12 @@ export function GalleryItem({ imagePath, imageCaption }) {
       <>
         <Wrap>
           <Img
+            className={id}
             alt="post image"
             src={imagePath}
             style={{ zIndex: 0, cursor: "pointer" }}
             onClick={handleShowDialog}
+            id={id}
           />
         </Wrap>
         {modal && (
@@ -40,6 +42,7 @@ export function GalleryItem({ imagePath, imageCaption }) {
             imag={imagePath}
             capt={imageCaption}
             toggleModal={handleShowDialog}
+            userName={userName}
           />
         )}
       </>
@@ -48,7 +51,12 @@ export function GalleryItem({ imagePath, imageCaption }) {
     return (
       <>
         <Wrap>
-          <CardCaption imag="" imageCaption={imageCaption}></CardCaption>
+          <CardCaption
+            imag=""
+            imageCaption={imageCaption}
+            id={id}
+            userName={userName}
+          ></CardCaption>
         </Wrap>
       </>
     );

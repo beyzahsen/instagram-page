@@ -1,7 +1,16 @@
 import "./AddImagePopup.css";
 import React from "react";
+import axios from "axios";
 
-export default function DetailPopup({ imag, capt, toggleModal }) {
+export default function DetailPopup({ imag, capt, toggleModal, id, userName }) {
+  function handlePost() {
+    const url = "http://localhost:3100/api/deletefromuser";
+
+    axios.post(url, { id, userName }).then((res) => {
+      console.log(res);
+    });
+  }
+
   if (imag !== "") {
     return (
       <div className="modal" style={{ zIndex: 51 }}>
@@ -16,6 +25,15 @@ export default function DetailPopup({ imag, capt, toggleModal }) {
             }}
           >
             <h2 style={{ margin: 10, fontWeight: "bold" }}>Post Detayları</h2>
+            <button
+              className="btn-delete"
+              style={{
+                background: "#E74C3C",
+              }}
+              onClick={handlePost}
+            >
+              Postu Sil
+            </button>
             <button
               style={{ background: "#E74C3C" }}
               onClick={toggleModal}
@@ -43,6 +61,15 @@ export default function DetailPopup({ imag, capt, toggleModal }) {
             }}
           >
             <h2 style={{ margin: 10, fontWeight: "bold" }}>Post Detayları</h2>
+            <button
+              className="btn-delete"
+              style={{
+                background: "#E74C3C",
+              }}
+              onClick={handlePost}
+            >
+              Postu Sil
+            </button>
             <button
               style={{ background: "#E74C3C" }}
               onClick={toggleModal}

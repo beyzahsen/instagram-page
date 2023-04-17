@@ -16,9 +16,10 @@ export function Gallery(props) {
     <Grid>
       {props.data.posts.map((item, id) => (
         <GalleryItem
-          key={id}
+          id={item._id}
           imagePath={item.postImage}
           imageCaption={item.caption}
+          userName={props.data.userName}
         />
       ))}
     </Grid>

@@ -39,8 +39,6 @@ router.post("/api/getallusersnames", async (req, res) => {
 
 router.post("/api/addposttouser", async (req, res) => {
   try {
-    console.log(req.body);
-    console.log(req.file);
     await User.findOneAndUpdate(
       { userName: req.body.userName },
       { $push: { posts: { caption: req.body.caption } } }
@@ -50,6 +48,21 @@ router.post("/api/addposttouser", async (req, res) => {
   } catch (e) {
     console.log(e);
     res.json({ error: "Something went wrong when adding post" });
+  }
+});
+
+router.post("/api/deletefromuser", async (req, res) => {
+  try {
+    console.log(req.body);
+    await User.findOneAndUpdate(
+      { userName: req.body.userName },
+      { $pull: { posts: { _id: req.body.id } } }
+    );
+
+    res.json({ success: true });
+  } catch (e) {
+    console.log(e);
+    res.json({ error: "Something went wrong when deleting post" });
   }
 });
 

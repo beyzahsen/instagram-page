@@ -1,6 +1,5 @@
 @import url("./reset.css");
 @import url("./common.css");
-@import url("./system-token.css");
 
 
 * {
@@ -267,10 +266,7 @@ border: 0.5px solid #ddd;
   
 }
 
-.featured-stories{
-  width: 50%;
-  margin: 0;
-}
+
 
 .featured {
   display:flex;

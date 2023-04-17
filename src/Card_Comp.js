@@ -6,8 +6,6 @@ import { CardActionArea } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 export default function BasicCard(props) {
-  console.log("card comp");
-  console.log(props.data);
   const navigate = useNavigate();
 
   return (

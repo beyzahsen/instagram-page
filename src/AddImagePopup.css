@@ -8,7 +8,19 @@ body.active-modal {
     margin: 10px auto 0;
     font-size: 30px;
     transform: translateX(50%);
+    z-index: 1;
 
+}
+.btn-delete{
+    position: absolute;
+    top: 10px;
+    right: 240px;
+    height: 30px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 }
 
 .modal, .overlay {
@@ -19,11 +31,14 @@ body.active-modal {
     right: 0;
     bottom: 0;
     position: fixed;
+    z-index: 2 ;
+}
+.noImg {
+    pointer-events: none;
 }
 
 .overlay {
     background: rgba(49,49,49,0.8);
-    z-index: 50;
 }
 .modal-content {
     position: absolute;
@@ -37,6 +52,7 @@ body.active-modal {
     border-radius: 3px;
     max-width: 600px;
     min-width: 300px;
+    z-index: 1501;
 }
 
 .close-modal {

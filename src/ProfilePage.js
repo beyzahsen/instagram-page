@@ -21,7 +21,7 @@ const Main = styled.main`
 export function ProfilePage() {
   const { id } = useParams();
   const [data, setData] = useState(null);
-
+  const [name, setName] = useState("");
   async function fetchUser(nameInsta) {
     await axios
       .post("http://localhost:3100/api/getuser", {
@@ -37,6 +37,7 @@ export function ProfilePage() {
 
   useEffect(() => {
     const nameInsta = id.toLocaleLowerCase();
+    setName(nameInsta);
     fetchUser(nameInsta);
   }, []);
 
@@ -47,7 +48,7 @@ export function ProfilePage() {
         <Main>
           <Profile data={data} />
           <Gallery data={data} />
-          <Popup></Popup>
+          <Popup userName={name}></Popup>
         </Main>
       </ProSidebarProvider>
     );

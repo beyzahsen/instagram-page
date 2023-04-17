@@ -3,7 +3,7 @@ import { useState } from "react";
 import "./styles.css";
 import axios from "axios";
 
-export default function ImageUpload() {
+export default function ImageUpload({ userName }) {
   const [image, setImage] = useState(null);
   const [caption, setCaption] = useState("");
 
@@ -13,13 +13,13 @@ export default function ImageUpload() {
   };
 
   function handleApi() {
-    if (!image) {
-      alert("Please select an image");
+    if (!caption) {
+      alert("Please write a caption!");
       return;
     }
-    const url = "http://localhost:3100/api/addimagetouser";
+    const url = "http://localhost:3100/api/addposttouser";
 
-    axios.post(url, { caption, image }).then((res) => {
+    axios.post(url, { userName, caption, image }).then((res) => {
       console.log(res);
     });
   }

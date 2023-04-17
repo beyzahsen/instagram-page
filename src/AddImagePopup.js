@@ -2,7 +2,7 @@ import "./AddImagePopup.css";
 import React, { useState } from "react";
 import ImageUpload from "./ImageUpload";
 
-export default function Popup() {
+export default function Popup({ userName }) {
   const [modal, setModal] = useState(false);
   const toggleModal = () => {
     setModal(!modal);
@@ -45,7 +45,7 @@ export default function Popup() {
               >
                 <p>x</p>
               </button>
-              <ImageUpload></ImageUpload>
+              <ImageUpload userName={userName}></ImageUpload>
             </div>
           </div>
         </div>

@@ -37,18 +37,19 @@ router.post("/api/getallusersnames", async (req, res) => {
   }
 });
 
-router.post("/api/addimagetouser", async (req, res) => {
+router.post("/api/addposttouser", async (req, res) => {
   try {
-    console.log("ADD IMAGE TO USER API");
     console.log(req.body);
-    console.log(req.file); // this will log the file metadata
-
-    // Here you can save the image to your database using a library like 'fs'
+    console.log(req.file);
+    await User.findOneAndUpdate(
+      { userName: req.body.userName },
+      { $push: { posts: { caption: req.body.caption } } }
+    );
 
     res.json({ success: true });
   } catch (e) {
     console.log(e);
-    res.json({ error: "Something went wrong when adding image" });
+    res.json({ error: "Something went wrong when adding post" });
   }
 });
 
